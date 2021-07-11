@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/oliver.chen/.oh-my-zsh"
+export ZSH="/Users/miachen/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -41,7 +41,6 @@ export ZSH="/Users/oliver.chen/.oh-my-zsh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   k
-  poetry
   zsh-autosuggestions
   zsh-completions
   zsh-history-substring-search
@@ -59,9 +58,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nano'
 else
-  export EDITOR='vim'
+  export EDITOR='nano'
 fi
 
 # Compilation flags
@@ -78,19 +77,13 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 
 # CDPATH
 setopt auto_cd
-cdpath=(. $HOME $HOME/src $HOME/Google\ Drive\ \(oliver.chen@traveloka.com\))
+cdpath=(. $HOME $HOME/Documents $HOME/Documents/code)
 
 # Hook direnv into zsh
 eval "$(direnv hook zsh)"
 
 # Starship prompt
 eval "$(starship init zsh)"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/oliver.chen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/oliver.chen/google-cloud-sdk/path.zsh.inc'; fi
-
-# # The next line enables shell command completion for gcloud.
-# if [ -f '/Users/oliver.chen/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/oliver.chen/google-cloud-sdk/completion.zsh.inc'; fi
 
 autoload -Uz compinit
 zstyle ':completion:*' menu select
@@ -108,23 +101,5 @@ pastefinish() {
 }
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
-
-export PATH="$HOME/.poetry/bin:$PATH"
-export PATH="/usr/local/opt/node@12/bin:$PATH"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/oliver.chen/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/oliver.chen/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/oliver.chen/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/oliver.chen/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 export PATH=$HOME/bin:$PATH
