@@ -82,16 +82,7 @@ alias ohmyzsh="nano ~/.oh-my-zsh"
 
 # CDPATH
 setopt auto_cd
-cdpath=(. $HOME)
-
-# Hook direnv into zsh
-eval "$(direnv hook zsh)"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f $HOME'/google-cloud-sdk/path.zsh.inc' ]; then . $HOME/google-cloud-sdk/path.zsh.inc; fi
-
-# # The next line enables shell command completion for gcloud.
-# if [ -f $HOME'/google-cloud-sdk/completion.zsh.inc' ]; then . $HOME'/google-cloud-sdk/completion.zsh.inc'; fi
+cdpath=(. $HOME $HOME/Documents $HOME/Documents/code)
 
 autoload -Uz compinit
 zstyle ':completion:*' menu select
@@ -109,21 +100,6 @@ pastefinish() {
 }
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="$HOME/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 export PATH=$HOME/bin:$PATH
 
