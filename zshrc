@@ -9,7 +9,7 @@ fi
 export PATH=$HOME/bin:/usr/local/opt/python@3.9/libexec/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="/Users/miachen/.oh-my-zsh"
 
 # Set name of the theme to load
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
